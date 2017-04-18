@@ -1,7 +1,23 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wwall", "wwall\wwall.csproj", "{428D5BBD-F647-4D4F-A1E1-4AED414F8E3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wwallMain", "wwall\wwallMain.csproj", "{428D5BBD-F647-4D4F-A1E1-4AED414F8E3F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wwall.Model", "wwall.Model\wwall.Model.csproj", "{1C7FF5F1-7829-49EA-A905-A69C771C7DC3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wwall.DataAccess", "wwall.DataAccess\wwall.DataAccess.csproj", "{AA4B14D7-DCE3-4827-B4B1-5ACBAA50465B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Model", "1.Model", "{2D7F6F7B-3524-485B-8A6A-54AA2D94FBC1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.DataAccess", "2.DataAccess", "{E4AE1AFC-5745-4A93-864D-31EDC97D7724}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.Bussiness", "3.Bussiness", "{FFFCA8BE-1F52-42A9-9172-3643DC44A083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wwall.Bussiness", "wwall.Bussiness\wwall.Bussiness.csproj", "{2BB6DA99-4FB5-4F32-B48F-451F33C12882}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Infrastructure", "4.Infrastructure", "{8514EEC8-38F8-48EF-8F67-457B84D8535C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.Web", "5.Web", "{4FC7F73E-229B-46F5-AAFB-BBBC77276486}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,8 +29,26 @@ Global
 		{428D5BBD-F647-4D4F-A1E1-4AED414F8E3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{428D5BBD-F647-4D4F-A1E1-4AED414F8E3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{428D5BBD-F647-4D4F-A1E1-4AED414F8E3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C7FF5F1-7829-49EA-A905-A69C771C7DC3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C7FF5F1-7829-49EA-A905-A69C771C7DC3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C7FF5F1-7829-49EA-A905-A69C771C7DC3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C7FF5F1-7829-49EA-A905-A69C771C7DC3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA4B14D7-DCE3-4827-B4B1-5ACBAA50465B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA4B14D7-DCE3-4827-B4B1-5ACBAA50465B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA4B14D7-DCE3-4827-B4B1-5ACBAA50465B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA4B14D7-DCE3-4827-B4B1-5ACBAA50465B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BB6DA99-4FB5-4F32-B48F-451F33C12882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BB6DA99-4FB5-4F32-B48F-451F33C12882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BB6DA99-4FB5-4F32-B48F-451F33C12882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BB6DA99-4FB5-4F32-B48F-451F33C12882}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1C7FF5F1-7829-49EA-A905-A69C771C7DC3} = {2D7F6F7B-3524-485B-8A6A-54AA2D94FBC1}
+		{AA4B14D7-DCE3-4827-B4B1-5ACBAA50465B} = {E4AE1AFC-5745-4A93-864D-31EDC97D7724}
+		{2BB6DA99-4FB5-4F32-B48F-451F33C12882} = {FFFCA8BE-1F52-42A9-9172-3643DC44A083}
+		{428D5BBD-F647-4D4F-A1E1-4AED414F8E3F} = {4FC7F73E-229B-46F5-AAFB-BBBC77276486}
 	EndGlobalSection
 EndGlobal

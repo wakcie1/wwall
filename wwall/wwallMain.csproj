@@ -219,6 +219,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\" />
+    <Folder Include="Interface\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

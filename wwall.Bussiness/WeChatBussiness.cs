@@ -10,7 +10,7 @@ namespace wwall.Bussiness
 
     public class WeChatBussiness
     {
-         protected string Token;
+        protected string Token;
 
         /// <summary>
         /// 构造函数，不带参数
@@ -43,7 +43,7 @@ namespace wwall.Bussiness
         /// 曹鹏飞
         /// 2016-9-27 17:40:39
         /// </summary>
-        public void Auth()
+        private void Auth()
         {
             string echoStr = HttpContext.Current.Request.QueryString["echoStr"];
             if (CheckSignature())

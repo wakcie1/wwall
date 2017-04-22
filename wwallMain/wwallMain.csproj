@@ -112,8 +112,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\Test.ashx.cs">
+      <DependentUpon>Test.ashx</DependentUpon>
     </Compile>
     <Compile Include="Interface\wechat.ashx.cs">
       <DependentUpon>wechat.ashx</DependentUpon>
@@ -124,6 +128,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="App_Data\CommonData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -135,8 +142,6 @@
     <Content Include="Views\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -150,10 +155,17 @@
       <Project>{2bb6da99-4fb5-4f32-b48f-451f33c12882}</Project>
       <Name>wwall.Bussiness</Name>
     </ProjectReference>
+    <ProjectReference Include="..\wwall.Core\wwall.Core.csproj">
+      <Project>{b744ccdf-fd1f-4e2c-b36a-6f0e0fd83d2f}</Project>
+      <Name>wwall.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\wwall.Model\wwall.Model.csproj">
       <Project>{1c7ff5f1-7829-49ea-a905-a69c771c7dc3}</Project>
       <Name>wwall.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Interface\Test.ashx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -29,3 +29,7 @@ wwall/bin/System.Web.WebPages.dll
 wwall/bin/System.Web.WebPages.Razor.dll
 wwall/bin/WebGrease.dll
 wwall/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+wwall.Core/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+wwallMain/obj/Debug/DesignTimeResolveAssemblyReferences.cache
+wwallMain/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+wwallMain/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache

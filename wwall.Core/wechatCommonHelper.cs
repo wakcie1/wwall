@@ -5,7 +5,7 @@ using System.Text;
 
 namespace wwall.Core
 {
-    public class wechatCommonHelper
+    public class WechatCommonHelper
     {
         public static string GetWechatToken()
         {

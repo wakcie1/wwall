@@ -77,13 +77,19 @@ namespace wwall.Core
             xmlDoc.Save(path);
         }
 
-
-        private static string PostWebRequest(string postUrl, string paramData, Encoding dataEncode)
+        /// <summary>
+        /// POST请求
+        /// </summary>
+        /// <param name="postUrl"></param>
+        /// <param name="paramData"></param>
+        /// <param name="dataEncode"></param>
+        /// <returns></returns>
+        public static string PostWebRequest(string postUrl, string paramData, Encoding dataEncode)
         {
             string ret = string.Empty;
             try
             {
-                byte[] byteArray = dataEncode.GetBytes(paramData); //转化
+                byte[] byteArray = Encoding.UTF8.GetBytes(paramData); //转化
                 HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(new Uri(postUrl));
                 webReq.Method = "POST";
                 webReq.ContentType = "application/x-www-form-urlencoded";
@@ -92,7 +98,7 @@ namespace wwall.Core
                 newStream.Write(byteArray, 0, byteArray.Length);//写入参数
                 newStream.Close();
                 HttpWebResponse response = (HttpWebResponse)webReq.GetResponse();
-                StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.Default);
+                StreamReader sr = new StreamReader(response.GetResponseStream(), Encoding.UTF8);
                 ret = sr.ReadToEnd();
                 sr.Close();
                 response.Close();
@@ -103,6 +109,34 @@ namespace wwall.Core
 
             }
             return ret;
+        }
+
+        /// <summary>
+        /// GET请求
+        /// </summary>
+        /// <param name="url"></param>
+        /// <param name="paramData"></param>
+        /// <returns></returns>
+        public static string GetWebRequest(string url)
+        {
+            string retString = string.Empty;
+            try
+            {
+                HttpWebRequest webReq = (HttpWebRequest)WebRequest.Create(new Uri(url));
+                webReq.Method = "GET";
+                webReq.ContentType = "text/html;charset=UTF-8";
+                HttpWebResponse response = (HttpWebResponse)webReq.GetResponse();
+                Stream myResponseStream = response.GetResponseStream();
+                StreamReader myStreamReader = new StreamReader(myResponseStream, Encoding.UTF8);
+                retString = myStreamReader.ReadToEnd();
+                myStreamReader.Close();
+                myResponseStream.Close();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return retString;
         }
     }
 }

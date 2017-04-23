@@ -1,52 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Web;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.Generic;
+using wwall.Core;
+using Newtonsoft.Json;
+using wwall.Model.WeChat;
 
 namespace wwall.Bussiness
 {
-    using System.Web;
-
     public class WeChatBussiness
     {
-        protected string Token;
-
-        /// <summary>
-        /// 构造函数，不带参数
-        /// 曹鹏飞
-        /// 2016-9-27 17:24:54
-        /// </summary>
-        public WeChatBussiness() { }
-
-        /// <summary>
-        /// 构造函数，带一个参数
-        /// </summary>
-        /// <param name="token"></param>
-        public WeChatBussiness(string token)
-        {
-            Token = token;
-        }
-
-        public void Start()
-        {
-            if (HttpContext.Current.Request.HttpMethod.ToUpper() == "GET")
-            {
-                Auth();
-            }
-            else
-            { }
-        }
-
         /// <summary>
         /// 验证签名
-        /// 曹鹏飞
-        /// 2016-9-27 17:40:39
         /// </summary>
-        private void Auth()
+        public static void Auth(string myToken)
         {
+            if (HttpContext.Current.Request.HttpMethod.ToUpper() != "GET")
+            {
+                return;
+            }
             string echoStr = HttpContext.Current.Request.QueryString["echoStr"];
-            if (CheckSignature())
+            if (CheckSignature(myToken))
             {
                 if (!string.IsNullOrEmpty(echoStr))
                 {
@@ -57,12 +33,45 @@ namespace wwall.Bussiness
         }
 
         /// <summary>
+        /// 获取普通Token
+        /// </summary>
+        /// <returns></returns>
+        public static string GetAccessToken()
+        {
+            var acToken = CommonHelper.GetXmlValue("WeChatCommonToken", "token");
+            var expiresDate = CommonHelper.GetXmlValue("WeChatCommonToken", "expires_date");
+            bool needGetNewToken = false;
+            if (string.IsNullOrEmpty(acToken))
+            {
+                needGetNewToken = true;
+            }
+            else if (!string.IsNullOrEmpty(expiresDate))
+            {
+                var expTime = Convert.ToDateTime(expiresDate);
+                if (expTime < DateTime.Now)
+                {
+                    needGetNewToken = true;
+                }
+            }
+            if (needGetNewToken)
+            {
+                var acTokenUrl = string.Format("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={0}&secret={1}", "wxf01595a1ef2473eb", "ffd1da2b291582bdc858195517140e77");
+                var result = CommonHelper.GetWebRequest(acTokenUrl);
+                var acTokenModel = JsonConvert.DeserializeObject<AcToken>(result);
+                acToken = acTokenModel.Access_token;
+                CommonHelper.SetXmlValue("WeChatCommonToken", "token", acToken);
+                CommonHelper.SetXmlValue("WeChatCommonToken", "expires_date", DateTime.Now.AddSeconds(acTokenModel.Expires_in - 200).ToString("yyyy-MM-dd HH-mm-ss"));
+            }
+
+            return acToken;
+        }
+
+        /// <summary>
         /// 验证签名（不加密）
-        /// 曹鹏飞
         /// 2016-9-27 17:34:48
         /// </summary>
         /// <returns></returns>
-        private bool CheckSignature()
+        private static bool CheckSignature(string myToken)
         {
             // * 将token、timestamp、nonce三个参数进行字典序排序  
             // * 将三个参数字符串拼接成一个字符串进行sha1加密  
@@ -72,7 +81,7 @@ namespace wwall.Bussiness
             string nonce = HttpContext.Current.Request.QueryString["nonce"];
             //加密/校验流程：  
             //1. 将token、timestamp、nonce三个参数进行字典序排序  
-            string[] arrTmp = { Token, timestamp, nonce };
+            string[] arrTmp = { myToken, timestamp, nonce };
             Array.Sort(arrTmp);//字典排序  
             //2.将三个参数字符串拼接成一个字符串进行sha1加密  
             string tmpStr = string.Join("", arrTmp);
@@ -93,8 +102,6 @@ namespace wwall.Bussiness
 
         /// <summary>
         /// sha1散列算法
-        /// 曹鹏飞
-        /// 2016-9-27 17:39:12
         /// </summary>
         /// <param name="text"></param>
         /// <returns></returns>

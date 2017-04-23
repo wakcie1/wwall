@@ -33,6 +33,10 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -45,6 +49,23 @@
   <ItemGroup>
     <Compile Include="WeChatBussiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\wwall.Core\wwall.Core.csproj">
+      <Project>{b744ccdf-fd1f-4e2c-b36a-6f0e0fd83d2f}</Project>
+      <Name>wwall.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\wwall.DataAccess\wwall.DataAccess.csproj">
+      <Project>{aa4b14d7-dce3-4827-b4b1-5acbaa50465b}</Project>
+      <Name>wwall.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\wwall.Model\wwall.Model.csproj">
+      <Project>{1c7ff5f1-7829-49ea-a905-a69c771c7dc3}</Project>
+      <Name>wwall.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

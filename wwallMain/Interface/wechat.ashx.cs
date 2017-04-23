@@ -14,8 +14,7 @@ namespace wwallMain.Interface
 
         public void ProcessRequest(HttpContext context)
         {
-            var weChat = new WeChatBussiness("wanghao123");
-            weChat.Start();
+            WeChatBussiness.Auth("wanghao123");
         }
 
         public bool IsReusable

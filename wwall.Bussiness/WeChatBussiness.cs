@@ -60,7 +60,7 @@ namespace wwall.Bussiness
                 var acTokenModel = JsonConvert.DeserializeObject<AcToken>(result);
                 acToken = acTokenModel.Access_token;
                 CommonHelper.SetXmlValue("WeChatCommonToken", "token", acToken);
-                CommonHelper.SetXmlValue("WeChatCommonToken", "expires_date", DateTime.Now.AddSeconds(acTokenModel.Expires_in - 200).ToString("yyyy-MM-dd HH-mm-ss"));
+                CommonHelper.SetXmlValue("WeChatCommonToken", "expires_date", DateTime.Now.AddSeconds(acTokenModel.Expires_in - 200).ToString("yyyy-MM-dd HH:mm:ss"));
             }
 
             return acToken;

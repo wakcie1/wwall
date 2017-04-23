@@ -93,6 +93,7 @@ namespace wwall.Bussiness
                         switch (xmlElement.SelectSingleNode("MsgType").InnerText)
                         {
                             case "text":
+                                SendToWx = GetWxTextXml(postString);
                                 break;
                             case "image":
                                 break;
@@ -142,6 +143,8 @@ namespace wwall.Bussiness
                         }
                         if (!string.IsNullOrEmpty(SendToWx))
                         {
+
+
                             System.Web.HttpContext.Current.Response.Write(SendToWx);
                             System.Web.HttpContext.Current.Response.End();
                         }
@@ -237,6 +240,19 @@ namespace wwall.Bussiness
             }
             return result;
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="message"></param>
+        //private static void SendWeChatMessage(string message)
+        //{
+        //    var accToken = GetAccessToken();
+        //    var messageUrl = string.Format("https://api.weixin.qq.com/cgi-bin/message/custom/send?access_token={0}", accToken);
+        //    var param = string.Format("token={0}&");
+        //    var result = CommonHelper.GetWebRequest(messageUrl);
+
+        //}
         #endregion
     }
 }

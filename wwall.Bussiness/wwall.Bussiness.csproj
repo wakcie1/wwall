@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="WeChatBussiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WeChatOAuth.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\wwall.Core\wwall.Core.csproj">

@@ -14,7 +14,16 @@ namespace wwallMain.Interface
 
         public void ProcessRequest(HttpContext context)
         {
-            WeChatBussiness.Auth("wanghao123");
+            //微信验证
+            if (HttpContext.Current.Request.HttpMethod.ToUpper() == "GET")
+            {
+                WeChatBussiness.Auth("wanghao123");
+            }
+            //推送请求
+            if (HttpContext.Current.Request.HttpMethod.ToUpper() == "POST")
+            {
+               
+            }
         }
 
         public bool IsReusable

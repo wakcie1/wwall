@@ -138,5 +138,33 @@ namespace wwall.Core
             }
             return retString;
         }
+
+
+        /// <summary>
+        /// 将Unix时间戳转换为DateTime类型时间
+        /// </summary>
+        /// <param name="d">double 型数字</param>
+        /// <returns>DateTime</returns>
+        public static DateTime ConvertIntDateTime(double d)
+        {
+            DateTime time = DateTime.MinValue;
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1));
+            time = startTime.AddMilliseconds(d);
+            return time;
+        }
+
+        /// <summary>
+        /// 将c# DateTime时间格式转换为Unix时间戳格式
+        /// </summary>
+        /// <param name="time">时间</param>
+        /// <returns>long</returns>
+        public static long ConvertDateTimeInt(DateTime time)
+        {
+            //double intResult = 0;
+            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, 0));
+            //intResult = (time- startTime).TotalMilliseconds;
+            long t = (time.Ticks - startTime.Ticks) / 10000;            //除10000调整为13位
+            return t;
+        }
     }
 }

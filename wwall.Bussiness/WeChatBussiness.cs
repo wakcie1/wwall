@@ -71,7 +71,7 @@ namespace wwall.Bussiness
         /// <summary>
         /// 处理微信请求
         /// </summary>
-        public static void ProcessWeChatPost()
+        public static string ProcessWeChatPost()
         {
             string result = "";
             string postString = string.Empty;
@@ -128,7 +128,10 @@ namespace wwall.Bussiness
                                     case "LOCATION":
                                         break;
                                     case "CLICK":
-
+                                        if (eventKey.Equals("A2"))
+                                        {
+                                            return "A2";
+                                        }
                                         break;
                                     case "VIEW":
                                         break;
@@ -160,6 +163,7 @@ namespace wwall.Bussiness
                     }
                 }
             }
+            return result;
         }
 
         #region 私有方法
@@ -234,6 +238,38 @@ namespace wwall.Bussiness
             };
             //数据组织拼接返回xml
             if (model.Content == "你好！")
+            {
+                //返回的xml
+                result = string.Format(MessageXml.TextMsg, model.FromUserName, model.ToUserName, CommonHelper.ConvertDateTimeInt(DateTime.Now), "你好！接口测试通过了！恭喜你！");
+            }
+            return result;
+        }
+
+
+        /// <summary>
+        /// 获取文本回复内容
+        /// </summary>
+        /// <param name="StrXml"></param>
+        /// <returns></returns>
+        private static string GetWxClickXml(string StrXml)
+        {
+            string result = string.Empty;
+            //加载xml
+            XmlDocument textXml = new XmlDocument();
+            textXml.LoadXml(StrXml);
+            XmlElement xmlElement = textXml.DocumentElement;
+            //转成model对象
+            Receive_Event model = new Receive_Event()
+            {
+                ToUserName = xmlElement.SelectSingleNode("ToUserName").InnerText,
+                FromUserName = xmlElement.SelectSingleNode("FromUserName").InnerText,
+                CreateTime = xmlElement.SelectSingleNode("CreateTime").InnerText,
+                MsgType = xmlElement.SelectSingleNode("MsgType").InnerText,
+                Event = xmlElement.SelectSingleNode("Event").InnerText,
+                EventKey = xmlElement.SelectSingleNode("EventKey").InnerText
+            };
+            //数据组织拼接返回xml
+            if (model.Event == "click")
             {
                 //返回的xml
                 result = string.Format(MessageXml.TextMsg, model.FromUserName, model.ToUserName, CommonHelper.ConvertDateTimeInt(DateTime.Now), "你好！接口测试通过了！恭喜你！");

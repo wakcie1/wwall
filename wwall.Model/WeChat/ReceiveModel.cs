@@ -49,4 +49,20 @@ namespace wwall.Model.WeChat
         /// </summary>
         public string MsgId { get; set; }
     }
+
+    /// <summary>
+    /// 接收点击菜单事件推送
+    /// </summary>
+    public class Receive_Event : ReceiveModel
+    {
+        /// <summary>
+        /// 文本消息内容
+        /// </summary>
+        public string Event { get; set; }
+
+        /// <summary>
+        /// 消息id，64位整型
+        /// </summary>
+        public string EventKey { get; set; }
+    }
 }

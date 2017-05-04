@@ -22,7 +22,11 @@ namespace wwallMain.Interface
             //推送请求
             if (HttpContext.Current.Request.HttpMethod.ToUpper() == "POST")
             {
-                WeChatBussiness.ProcessWeChatPost();
+               var result =  WeChatBussiness.ProcessWeChatPost();
+               if (result == "A2")
+               {
+                   HttpContext.Current.Response.Redirect("~/Base/Index");
+               }
             }
         }
 

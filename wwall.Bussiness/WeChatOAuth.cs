@@ -257,4 +257,54 @@ namespace wwall.Bussiness
         /// </summary>
         public string unionid { get; set; }
     }
+
+    /// <summary>
+    /// 根据code返回的订阅号accesstoken实体
+    /// </summary>
+    public class WebAccessToken
+    {
+        public string access_token { get; set; }
+
+        public int expires_in { get; set; }
+
+        public string refresh_token { get; set; }
+
+        public string openid { get; set; }
+
+        public string scope { get; set; }
+    }
+
+    /// <summary>
+    /// 微信用户基本信息
+    /// </summary>
+    public class UserInfoBase
+    {
+        public string subscribe { get; set; }
+
+        public string openid { get; set; }
+
+        public string nickname { get; set; }
+
+        public string sex { get; set; }
+
+        public string language { get; set; }
+
+        public string city { get; set; }
+
+        public string province { get; set; }
+
+        public string country { get; set; }
+
+        public string headimgurl { get; set; }
+
+        public string subscribe_time { get; set; }
+
+        public string unionid { get; set; }
+
+        public string remark { get; set; }
+
+        public string groupid { get; set; }
+
+        public List<string> tagid_list { get; set; }
+    }
 }

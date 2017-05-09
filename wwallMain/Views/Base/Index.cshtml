@@ -11,7 +11,12 @@
 </head>
 <body>
     <div>
-        @ViewBag.Message
+        @ViewBag.Message<br />
+
+        OPENID:   @ViewBag.UserInfo.openid<br />
+        Nickname:  @ViewBag.UserInfo.nickname<br />
+        headimgurl : @ViewBag.UserInfo.headimgurl<br />
+        <img src="@ViewBag.UserInfo.headimgurl" width="128" height="128"  />
     </div>
 </body>
 </html>

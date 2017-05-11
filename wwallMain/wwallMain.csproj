@@ -129,6 +129,59 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\CommonData.xml" />
+    <Content Include="Content\WeUI\weui.min.css" />
+    <Content Include="External\example.css" />
+    <Content Include="External\example.js" />
+    <Content Include="External\images\icon_footer.png" />
+    <Content Include="External\images\icon_footer_link.png" />
+    <Content Include="External\images\icon_intro.png" />
+    <Content Include="External\images\icon_nav_actionSheet.png" />
+    <Content Include="External\images\icon_nav_article.png" />
+    <Content Include="External\images\icon_nav_button.png" />
+    <Content Include="External\images\icon_nav_cell.png" />
+    <Content Include="External\images\icon_nav_dialog.png" />
+    <Content Include="External\images\icon_nav_feedback.png" />
+    <Content Include="External\images\icon_nav_flow.png" />
+    <Content Include="External\images\icon_nav_form.png" />
+    <Content Include="External\images\icon_nav_icons.png" />
+    <Content Include="External\images\icon_nav_layout.png" />
+    <Content Include="External\images\icon_nav_msg.png" />
+    <Content Include="External\images\icon_nav_nav.png" />
+    <Content Include="External\images\icon_nav_panel.png" />
+    <Content Include="External\images\icon_nav_progress.png" />
+    <Content Include="External\images\icon_nav_search.png" />
+    <Content Include="External\images\icon_nav_search_bar.png" />
+    <Content Include="External\images\icon_nav_special.png" />
+    <Content Include="External\images\icon_nav_tab.png" />
+    <Content Include="External\images\icon_nav_toast.png" />
+    <Content Include="External\images\icon_nav_z-index.png" />
+    <Content Include="External\images\icon_nav_zindex.png" />
+    <Content Include="External\images\icon_tabbar.png" />
+    <Content Include="External\images\layers\content.png" />
+    <Content Include="External\images\layers\navigation.png" />
+    <Content Include="External\images\layers\popout.png" />
+    <Content Include="External\images\layers\transparent.gif" />
+    <Content Include="External\images\logo.png" />
+    <Content Include="External\images\pic_160.png" />
+    <Content Include="External\images\pic_article.png" />
+    <Content Include="External\images\vcode.jpg" />
+    <Content Include="External\index.html" />
+    <Content Include="External\snapshot\actionSheet.png" />
+    <Content Include="External\snapshot\button.png" />
+    <Content Include="External\snapshot\cell.png" />
+    <Content Include="External\snapshot\dialog1.png" />
+    <Content Include="External\snapshot\dialog2.png" />
+    <Content Include="External\snapshot\grid.png" />
+    <Content Include="External\snapshot\icons.png" />
+    <Content Include="External\snapshot\progress.png" />
+    <Content Include="External\snapshot\qrcode.png" />
+    <Content Include="External\snapshot\result.png" />
+    <Content Include="External\snapshot\text.png" />
+    <Content Include="External\snapshot\toast1.png" />
+    <Content Include="External\snapshot\toast2.png" />
+    <Content Include="External\style\weui.css" />
+    <Content Include="External\test.html" />
+    <Content Include="External\zepto.min.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -167,6 +220,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Base\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Base\TestWeUi.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

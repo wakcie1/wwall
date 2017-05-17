@@ -20,6 +20,7 @@ namespace wwallMain.Controllers
             string code = string.Empty;
             if (string.IsNullOrEmpty(Request.QueryString["code"]))
             {
+                //test
                 string corpId = "wxf01595a1ef2473eb";
                 string secret = "ffd1da2b291582bdc858195517140e77";
                 string accessToken = WeChatBussiness.GetAccessToken();

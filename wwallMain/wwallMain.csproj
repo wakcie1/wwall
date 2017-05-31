@@ -129,6 +129,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\CommonData.xml" />
+    <Content Include="Content\Script\index.js" />
+    <Content Include="Content\Script\jquery-1.11.2.min.js" />
+    <Content Include="Content\Script\Demo.js" />
+    <Content Include="Content\Style\default.css" />
     <Content Include="Content\WeUI\weui.min.css" />
     <Content Include="External\example.css" />
     <Content Include="External\example.js" />

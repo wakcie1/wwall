@@ -1,13 +1,12 @@
 ﻿@{
     Layout = null;
 }
-
 <!DOCTYPE html>
-
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Index</title>
+    <link href="@Url.Content("~/Content/Style/default.css")" rel="stylesheet" />
 </head>
 <body>
     <div>
@@ -18,5 +17,13 @@
         headimgurl : @ViewBag.UserInfo.headimgurl<br />
         <img src="@ViewBag.UserInfo.headimgurl" width="128" height="128"  />
     </div>
+
+    <script src="@Url.Content("~/Content/Script/jquery-1.11.2.min.js")"></script>
+    <script src="@Url.Content("~/Content/Script/index.js")"></script>
+    <script type="text/javascript">
+        var config =
+        { "basePath": '@Url.Content("~")' };
+        SaasPageInit(config);
+    </script>
 </body>
 </html>
